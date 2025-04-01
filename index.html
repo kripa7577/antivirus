@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WARNING! Virus Detected</title>
+    <title>Love Calculator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: black;
+            background-color: pink;
             color: red;
         }
         .container {
@@ -17,40 +17,52 @@
         h1 {
             font-size: 3rem;
         }
-        p {
-            font-size: 1.5rem;
+        .input-box {
+            margin: 10px;
+            padding: 10px;
+            font-size: 1.2rem;
         }
-        .virus-animation {
-            font-size: 5rem;
-            animation: blink 0.5s infinite alternate;
-        }
-        @keyframes blink {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        .scan-button {
+        .calculate-button {
             margin-top: 20px;
             padding: 15px 30px;
             font-size: 1.5rem;
-            background-color: yellow;
-            color: black;
+            background-color: red;
+            color: white;
             border: none;
             cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 60px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>⚠️ WARNING: VIRUS DETECTED! ⚠️</h1>
-        <p>Your system is infected with a dangerous virus! Immediate action is required.</p>
-        <div class="virus-animation">💀💀💀</div>
-        <button class="scan-button" onclick="scanVirus()">Start Virus Scan</button>
-        <p id="scan-result" style="display: none; font-weight: bold; font-size: 60px;">APRIL FOOLS! 😂 Your system is safe.<br> <br><br>From KP</p>
+        <h1>❤️ Love Calculator ❤️</h1>
+        <p>Enter your name and your crush's name to calculate your love percentage!</p>
+        <input type="text" id="yourName" class="input-box" placeholder="Your Name">
+        <input type="text" id="crushName" class="input-box" placeholder="Crush's Name">
+        <br>
+        <button class="calculate-button" onclick="calculateLove()">Calculate Love %</button>
+        <div id="result"></div>
     </div>
 
     <script>
-        function scanVirus() {
-            document.getElementById('scan-result').style.display = 'block';
+        function calculateLove() {
+            let yourName = document.getElementById("yourName").value;
+            let crushName = document.getElementById("crushName").value;
+            if (yourName === "" || crushName === "") {
+                alert("Please enter both names!");
+                return;
+            }
+            setTimeout(() => {
+                document.getElementById("result").innerHTML = `<span style='font-size:3rem;'>100% 💕</span><br> You are destined to be together! 😍`;
+                setTimeout(() => {
+                    document.getElementById("result").innerHTML = "APRIL FOOLS! 😂";
+                }, 30);
+            }, 200);
         }
     </script>
 </body>
